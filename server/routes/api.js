@@ -19,12 +19,6 @@ router.put('/todo/:todoID', function (req, res) {
     const todoID = req.params.todoID
     const item = todos.find(t => t.id == todoID)
     item.complete = !(item.complete)
-    res.send(todos)
-})
-
-router.put('/todo/:todoID', function (req, res) {
-    const todoID = req.params.todoID
-    const item = todos.find(t => t.id == todoID)
     if(item.priority == 'low'){
         item.priority = 'med'
     }else if(item.priority == 'med'){
@@ -32,7 +26,6 @@ router.put('/todo/:todoID', function (req, res) {
     }else{
         item.priority = 'low'
     }
-    
     res.send(todos)
 })
 
